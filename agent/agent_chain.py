@@ -6,6 +6,7 @@ from agent.tools import team_stats_tool
 
 load_dotenv()
 
+<<<<<<< HEAD
 from langchain.chat_models import ChatOpenAI
 
 llm = ChatOpenAI(
@@ -13,6 +14,13 @@ llm = ChatOpenAI(
     temperature=0.3,
     openai_api_key=os.getenv("OPENAI_API_KEY"),
     openai_api_base="https://openrouter.ai/api/v1"  # 👈 add this line
+=======
+# Set up OpenAI LLM
+llm = ChatOpenAI(
+    model="gpt-3.5-turbo",  # Or gpt-4 if you have access
+    temperature=0.3,
+    openai_api_key=os.getenv("OPENAI_API_KEY")
+>>>>>>> 4bca915 (Added correct code to .py files)
 )
 
 # Register your tools
