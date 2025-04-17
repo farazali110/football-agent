@@ -1,5 +1,7 @@
 openai
-langchain
+langchain==0.3.23  # or the latest compatible version
 streamlit
 requests
 python-dotenv
+langchain_community
+
