@@ -5,13 +5,15 @@ from langchain.agents import initialize_agent, AgentType
 from agent.tools import team_stats_tool
 import streamlit as st
 
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+
 # Load environment variables
 load_dotenv()
 # Initialize the LLM
 llm = ChatOpenAI(
     model="openrouter/gpt-3.5-turbo",
     temperature=0.3,
-    openai_api_key=os.getenv("OPENAI_API_KEY"),
+    openai_api_key=openai_api_key,
     openai_api_base="https://openrouter.ai/api/v1"  # Custom OpenRouter endpoint
 )
 
