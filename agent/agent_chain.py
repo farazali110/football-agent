@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from agent.tools import team_stats_tool
 import streamlit as st
