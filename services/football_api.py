@@ -1,10 +1,12 @@
 import os
 import requests
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
+football_api_key = st.secrets["FOOTBALL_API_KEY"]  # Set this in your tool if needed
 
-API_KEY = os.getenv("FOOTBALL_API_KEY")
+API_KEY = football_api_key
 BASE_URL = "https://api.football-data.org/v4"
 
 HEADERS = {
