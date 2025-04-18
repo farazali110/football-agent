@@ -4,23 +4,15 @@ from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from agent.tools import team_stats_tool
 
+# Load environment variables
 load_dotenv()
 
-<<<<<<< HEAD
-from langchain.chat_models import ChatOpenAI
-
+# Initialize the LLM
 llm = ChatOpenAI(
-    model="openrouter/openai/gpt-3.5-turbo",
+    model="openrouter/gpt-3.5-turbo",
     temperature=0.3,
     openai_api_key=os.getenv("OPENAI_API_KEY"),
-    openai_api_base="https://openrouter.ai/api/v1"  # 👈 add this line
-=======
-# Set up OpenAI LLM
-llm = ChatOpenAI(
-    model="gpt-3.5-turbo",  # Or gpt-4 if you have access
-    temperature=0.3,
-    openai_api_key=os.getenv("OPENAI_API_KEY")
->>>>>>> 4bca915 (Added correct code to .py files)
+    openai_api_base="https://openrouter.ai/api/v1"  # Custom OpenRouter endpoint
 )
 
 # Register your tools
@@ -31,14 +23,12 @@ agent_executor = initialize_agent(
     tools=tools,
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-    verbose=True  # Useful for debugging
+    verbose=True  # Turn off in production if not needed
 )
 
-
 def run_agent(prompt: str) -> str:
-    """Main function to be used by the app or CLI to get a response."""
+    """Main function to get a response from the agent."""
     try:
-        result = agent_executor.run(prompt)
-        return result
+        return agent_executor.run(prompt)
     except Exception as e:
         return f"Error: {e}"
