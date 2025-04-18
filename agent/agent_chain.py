@@ -7,6 +7,9 @@ import streamlit as st
 
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
+st.write("OPENAI_API_KEY found:", "OPENAI_API_KEY" in st.secrets)
+st.write("FOOTBALL_API_KEY found:", "FOOTBALL_API_KEY" in st.secrets)
+
 # Load environment variables
 load_dotenv()
 # Initialize the LLM
