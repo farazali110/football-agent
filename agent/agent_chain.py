@@ -3,10 +3,11 @@ from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from agent.tools import team_stats_tool
+import streamlit as st
 
 # Load environment variables
 load_dotenv()
-
+openai_api_key = st.secrets["api_keys"]["OPENAI_API_KEY"]
 # Initialize the LLM
 llm = ChatOpenAI(
     model="openrouter/gpt-3.5-turbo",
